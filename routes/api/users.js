@@ -1,7 +1,7 @@
 const express = require("express");
 const router = express.Router();
 const gravatar = require("gravatar");
-const bcrypt = require("bryptjs");
+const bcrypt = require("bcryptjs");
 const { check, validationResult } = require("express-validator/check");
 
 const User = require("../../models/User");
@@ -55,7 +55,7 @@ router.post(
       await user.save(); // saves to DB
 
       // Return JsonWebToken
-      res.send("User Route");
+      res.send("User Registered");
     } catch (err) {
       console.error(err.message);
       res.status(500).send("Server Error");
